@@ -85,6 +85,22 @@ classdef Central_Second_Order_Test < matlab.unittest.TestCase
     end
 
     methods (Test, TestTags={'Medium'})
+        %% test_central_is_forward_minus_backward:
+        function test_two_times_central_is_forward_plus_backward(t, N)
+            import discretizations.first_derivative.*;
+
+            x = linspace(0, 1, N);
+            h = x(2) - x(1);
+            A = central_second_order(x);
+            F = forward_first_order(x);
+            B = backward_first_order(x);
+
+            t.assertEqual(2 * A, F + B, 'AbsTol', eps(10 * N), ...
+                'The central finite difference method should equal forward minus backward finite difference' ...
+            );
+        end
+
+
         %% test_consistency_of_second_order_central:
         function test_consistency_of_second_order_central(t)
 
