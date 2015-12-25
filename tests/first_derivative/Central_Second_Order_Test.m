@@ -58,12 +58,12 @@ classdef Central_Second_Order_Test < matlab.unittest.TestCase
             b = A * f(x');
 
             t.assertEqual(b(2 : end - 1), df(x(2 : end - 1)), 'AbsTol', eps(2 * N), ...
-                'The first order central difference method should approximate the derivative of a linear function with machine precision.' ...
+                'The second order central difference method should approximate the derivative of a linear function with machine precision.' ...
             );
         end
 
         %% test_it_is_accurate_up_to_first_order:
-        function test_the_discetization_error_is_dominated_by_the_second_derivative(t, N)
+        function test_the_discetization_error_is_dominated_by_the_third_derivative(t, N)
             import discretizations.first_derivative.central_second_order;
 
             x = linspace(0, 1, N);
