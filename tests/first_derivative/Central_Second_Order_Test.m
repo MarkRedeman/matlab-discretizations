@@ -82,9 +82,7 @@ classdef Central_Second_Order_Test < matlab.unittest.TestCase
                 'The truncation error is dominated by the third derivative.' ...
             );
         end
-    end
 
-    methods (Test, TestTags={'Medium'})
         %% test_central_is_forward_minus_backward:
         function test_two_times_central_is_forward_plus_backward(t, N)
             import discretizations.first_derivative.*;
@@ -99,8 +97,9 @@ classdef Central_Second_Order_Test < matlab.unittest.TestCase
                 'The central finite difference method should equal forward minus backward finite difference' ...
             );
         end
+    end
 
-
+    methods (Test, TestTags={'Medium'})
         %% test_consistency_of_second_order_central:
         function test_consistency_of_second_order_central(t)
 
