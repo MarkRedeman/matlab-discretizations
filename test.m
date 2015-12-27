@@ -42,7 +42,8 @@ function [results] = run_tests()
     % Since the function name of a test described the tests' behavior we don't want to limit
     % the length of a function name
     warning off MATLAB:namelengthmaxexceeded;
-    suite = TestSuite.fromFolder('tests', 'IncludingSubfolders', true);
+    % suite = TestSuite.fromFolder('tests', 'IncludingSubfolders', true);
+    suite = TestSuite.fromPackage('tests', 'IncludingSubpackages', true);
 
     results = runner.run(suite);
     warning on MATLAB:namelengthmaxexceeded;
